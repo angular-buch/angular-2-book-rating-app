@@ -1,0 +1,25 @@
+{
+  "version": "1.5.3",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "listFiles": true,
+    "experimentalDecorators": true,
+    "newLine": "LF"
+  },
+  "filesGlob": [
+    "./**/*.ts"
+  ],
+  "files": [
+    "app.ts",
+    "typings/angular2/angular2.d.ts",
+    "typings/es6-shim/es6-shim.d.ts"
+  ],
+  "exclude": []
+}
