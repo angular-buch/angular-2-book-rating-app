@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Angular2Buch/angular-2-book-rating-app/issues"
   },
-  "homepage": "https://github.com/Angular2Buch/angular-2-book-rating-app#readme"
+  "homepage": "https://github.com/Angular2Buch/angular-2-book-rating-app#readme",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.46",
+    "systemjs": "0.19.2"
+  }
 }
