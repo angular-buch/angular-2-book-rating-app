@@ -1,0 +1,20 @@
+{
+  "name": "book-rating-app",
+  "version": "1.0.0",
+  "description": "This is an example Angular 2.0 app that we have shown at the Developer Open Space 2015.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Angular2Buch/angular-2-book-rating-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Angular2Buch/angular-2-book-rating-app/issues"
+  },
+  "homepage": "https://github.com/Angular2Buch/angular-2-book-rating-app#readme"
+}
