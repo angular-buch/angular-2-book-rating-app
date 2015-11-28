@@ -3,9 +3,7 @@ import { Component, View, EventEmitter } from 'angular2/angular2';
 import Book from '../models/book';
 
 @Component({
-  selector: 'book',
-  inputs: ['book'],
-  outputs: ['rated']
+  selector: 'book'
 })
 @View({
   template: `
@@ -22,8 +20,8 @@ import Book from '../models/book';
   `
 })
 export default class BookComponent {
-  book: Book;
-  rated: EventEmitter = new EventEmitter();;
+  @Input() book: Book;
+  @Output() rated: EventEmitter = new EventEmitter();;
 
   rateUp() {
     this.book.rating++;
