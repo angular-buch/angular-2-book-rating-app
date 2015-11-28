@@ -4,7 +4,8 @@
   "description": "This is an example Angular 2.0 app that we have shown at the Developer Open Space 2015.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
   },
   "repository": {
     "type": "git",
