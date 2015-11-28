@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Jump start | Angular 2</title>
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+
+  <script src="../node_modules/systemjs/dist/system.src.js"></script>
+  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+</head>
+
+<body class="container">
+
+  <h1>
+    <img src="./img/angular2-logo.svg"> Book rating
+  </h1>
+
+  <book-rating></book-rating>
+
+  <script>
+    System.config({
+      packages: {
+        'app': { defaultExtension: 'js' }
+      }});
+    System.import('./app/app')
+  </script>
+
+</body>
+
+</html>
