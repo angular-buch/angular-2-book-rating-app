@@ -1,3 +1,20 @@
-node_modules/
-src/app/**/*.js
-src/app/**/*.js.map
+!node_modules/
+node_modules/*
+
+# includes node_modules/systemjs/dist/ only
+!node_modules/systemjs/
+node_modules/systemjs/*
+!node_modules/systemjs/dist/
+!node_modules/systemjs/dist/*
+
+# includes node_modules/bootstrap/dist/ only
+!node_modules/bootstrap/
+node_modules/bootstrap/*
+!node_modules/bootstrap/dist/
+!node_modules/bootstrap/dist/*
+
+# includes node_modules/angular2/bundles only
+!node_modules/angular2/
+node_modules/angular2/*
+!node_modules/angular2/bundles/
+!node_modules/angular2/bundles/*
