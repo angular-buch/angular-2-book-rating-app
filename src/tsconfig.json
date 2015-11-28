@@ -13,10 +13,12 @@
     "experimentalDecorators": true,
     "newLine": "LF"
   },
+  "filesGlob": [
+    "./app/**/*.ts"
+  ],
   "files": [
-    "./src/app.ts",
-    "./node_modules/angular2/angular2.d.ts",
-    "./node_modules/angular2/typings/es6-shim/es6-shim.d.ts"
+    "../node_modules/angular2/angular2.d.ts",
+    "../node_modules/angular2/typings/es6-shim/es6-shim.d.ts"
   ],
   "exclude": []
 }
