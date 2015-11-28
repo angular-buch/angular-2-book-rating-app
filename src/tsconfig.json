@@ -13,12 +13,22 @@
     "experimentalDecorators": true,
     "newLine": "LF"
   },
+  "exclude": [],
+  "atom": {
+    "rewriteTsconfig": true
+  },
   "filesGlob": [
-    "./app/**/*.ts"
+    "./**/*.ts",
+    "../node_modules/angular2/angular2.d.ts",
+    "../node_modules/angular2/bundles/typings/**"
   ],
   "files": [
+    "./app/app.ts",
+    "./app/components/book-component.ts",
+    "./app/components/book-rating.ts",
+    "./app/models/book.ts",
     "../node_modules/angular2/angular2.d.ts",
-    "../node_modules/angular2/typings/es6-shim/es6-shim.d.ts"
-  ],
-  "exclude": []
+    "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
+    "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
+  ]
 }
