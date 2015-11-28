@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Angular2Buch/angular-2-book-rating-app#readme",
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
+    "bootstrap": "^3.3.6",
     "systemjs": "0.19.2"
   },
   "devDependencies": {
