@@ -1,6 +1,4 @@
+.DS_Store
 node_modules/
 src/app/**/*.js
 src/app/**/*.js.map
-src/test/**/*.js
-src/test/**/*.js.map
-
