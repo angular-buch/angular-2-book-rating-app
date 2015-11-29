@@ -27,6 +27,7 @@
     "./app/components/book-component.ts",
     "./app/components/book-rating.ts",
     "./app/models/book.ts",
+    "./test/components/book-component_test.ts",
     "./test/components/book-rating_test.ts",
     "./test/hello-world_test.ts",
     "../node_modules/angular2/angular2.d.ts",
