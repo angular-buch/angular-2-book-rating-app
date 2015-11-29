@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/Angular2Buch/angular-2-book-rating-app.git"
   },
-  "keywords": ["angular2", "angularjs", "typescript"],
+  "keywords": [
+    "angular2",
+    "angularjs",
+    "typescript"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -25,10 +29,11 @@
     "systemjs": "0.19.6"
   },
   "devDependencies": {
-    "live-server": "^0.8.2",
-    "typescript": "^1.6.2",
+    "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6"
+    "karma-jasmine": "^0.3.6",
+    "live-server": "^0.8.2",
+    "typescript": "^1.6.2"
   }
 }
