@@ -23,7 +23,9 @@ import Book from '../../models/book';
    </div>
 
    <hr>
-   <book *ng-for="#book of books" [buch]="book"></book>
+   <book *ng-for="#book of books"
+         [buch]="book"
+         (rated)="reorderBooks(book)"></book>
   `,
   directives: [BookComponent]
 })
@@ -43,5 +45,9 @@ export default class BookRating {
 
     title.value = '';
     comment.value = '';
+  }
+
+  reorderBooks(book: Book) {
+    this.books.sort((a, b) => b.rating - a.rating);
   }
 }
