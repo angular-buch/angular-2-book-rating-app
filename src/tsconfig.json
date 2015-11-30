@@ -24,10 +24,9 @@
   ],
   "files": [
     "./app/app.ts",
-    "./app/components/book-component.ts",
-    "./app/components/book-rating.ts",
+    "./app/components/book-component/book-component.ts",
+    "./app/components/book-rating/book-rating.ts",
     "./app/models/book.ts",
-    "./test/components/book-rating_test.ts",
     "./test/hello-world_test.ts",
     "../node_modules/angular2/angular2.d.ts",
     "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
