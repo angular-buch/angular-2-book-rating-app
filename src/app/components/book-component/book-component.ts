@@ -12,7 +12,6 @@ import Book from '../../models/book';
       </div>
       <h2>{{ buch.title }} <small>Stars {{ buch.rating }}</small></h2>
       <p> {{ buch.comment }} </p>
-
     </div>
   `
 })
