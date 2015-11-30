@@ -37,7 +37,7 @@ export default class BookRating {
     this.books = books.all();
   }
 
-  add(title: Control, comment: Control) {
+  // add(title: \, comment: Control) {
     this.books.push(
       new Book(title.value, comment.value)
     );

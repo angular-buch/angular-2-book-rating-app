@@ -28,6 +28,8 @@
     "./app/components/book-rating/book-rating.ts",
     "./app/core/books-api.ts",
     "./app/models/book.ts",
+    "./test/components/book-component_test.ts",
+    "./test/components/book-rating_test.ts",
     "./test/hello-world_test.ts",
     "../node_modules/angular2/angular2.d.ts",
     "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
