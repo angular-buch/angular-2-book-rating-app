@@ -5,13 +5,18 @@
   "main": "app.js",
   "scripts": {
     "tsc": "tsc -p src -w",
-    "start": "live-server --open=src"
+    "start": "live-server --open=src",
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Angular2Buch/angular-2-book-rating-app.git"
   },
-  "keywords": [],
+  "keywords": [
+    "angular2",
+    "angularjs",
+    "typescript"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -21,9 +26,13 @@
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
     "bootstrap": "^3.3.6",
-    "systemjs": "0.19.2"
+    "systemjs": "0.19.6"
   },
   "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6",
     "live-server": "^0.8.2",
     "typescript": "^1.6.2"
   }
