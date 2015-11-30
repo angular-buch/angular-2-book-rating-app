@@ -2,6 +2,7 @@ import { Component, View} from 'angular2/angular2';
 import { Control } from 'angular2/angular2';
 import BookComponent from '../book-component/book-component';
 import Book from '../../models/book';
+import BooksApi from '../../core/books-api';
 
 @Component({
   selector: 'book-rating'
@@ -32,10 +33,8 @@ import Book from '../../models/book';
 export default class BookRating {
   books: Array<Book>;
 
-  constructor() {
-    this.books = [
-      new Book('Angular 1.x', 'Es war schön'),
-      new Book('Angular 2', 'Es wird besser =)')];
+  constructor(books: BooksApi) {
+    this.books = books.all();
   }
 
   add(title: Control, comment: Control) {
