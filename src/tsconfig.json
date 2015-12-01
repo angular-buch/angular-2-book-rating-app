@@ -30,6 +30,7 @@
     "./test/components/book-component_test.ts",
     "./test/components/book-rating_test.ts",
     "./test/hello-world_test.ts",
+    "./test/jasmine-standalone.ts",
     "../node_modules/angular2/angular2.d.ts",
     "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
     "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
