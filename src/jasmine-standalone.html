@@ -18,17 +18,26 @@
   <script src="../node_modules/angular2/bundles/testing.js"></script>
 
   <script>
+  
     System.config({
       packages: { 'app': { }, 'test': { } }
     });
     
-    // import the specs
-    System.import('./test/jasmine-standalone')
+    // Select BrowserDomAdapter.
+    // see https://github.com/AngularClass/angular2-webpack-starter/issues/124
+    System.import('angular2/src/core/dom/browser_adapter').then(function(domAdapter ) {
+      domAdapter .BrowserDomAdapter.makeCurrent();
+    }).then(function() {
     
-    // see https://angular.io/docs/ts/latest/testing/first-app-tests.html
-    // re-execute `window.onload` which triggers the Jasmine test-runner start
-    .then(window.onload)
-    .catch(console.error.bind(console));
+        // import the specs
+        System.import('./test/jasmine-standalone')
+        
+        // see https://angular.io/docs/ts/latest/testing/first-app-tests.html
+        // re-execute `window.onload` which triggers the Jasmine test-runner start
+        .then(window.onload)
+        .catch(console.error.bind(console));
+    
+    });
   </script>
 
 
