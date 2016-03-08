@@ -1,6 +1,6 @@
 node_modules/
-src/app/**/*.js
-src/app/**/*.js.map
-src/test/**/*.js
-src/test/**/*.js.map
+_old/src/app/**/*.js
+_old/src/app/**/*.js.map
+_old/src/test/**/*.js
+_old/src/test/**/*.js.map
 
