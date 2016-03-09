@@ -1,21 +1,9 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-
+import {Dashboard} from './components/dashboard/dashboard';
 
 @Component({
   selector: 'book-rating-app',
-  providers: [],
-  templateUrl: 'app/book-rating.html',
-  directives: [ROUTER_DIRECTIVES],
-  pipes: []
+  template: `<dashboard></dashboard>`,
+  directives: [Dashboard]
 })
-@RouteConfig([
-
-])
-export class BookRatingApp {
-  defaultMeaning: number = 42;
-  
-  meaningOfLife(meaning?: number) {
-    return `The meaning of life is ${meaning || this.defaultMeaning}`;
-  }
-}
+export class BookRatingApp {}
