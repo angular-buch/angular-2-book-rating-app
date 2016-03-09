@@ -10,16 +10,16 @@ import {
   beforeEachProviders
 } from 'angular2/testing';
 import {provide} from 'angular2/core';
-import {BookRating} from './book-rating';
+import {Dashboard} from './dashboard';
 
 
-describe('BookRating Component', () => {
+describe('Dashboard Component', () => {
 
   beforeEachProviders((): any[] => []);
 
 
   it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(BookRating).then((fixture) => {
+    return tcb.createAsync(Dashboard).then((fixture) => {
       fixture.detectChanges();
     });
   }));
