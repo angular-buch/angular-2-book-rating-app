@@ -21,7 +21,7 @@ import {BookComponent} from '../book-component/book-component';
      </div>
 
      <hr>
-     <book *ngFor="#book of books" [book]="book"></book>`
+     <book *ngFor="#book of books" [book]="book" (rated)="reorderBooks($event)"></book>`
 })
 export class Dashboard {
   books: Book[];
@@ -36,5 +36,9 @@ export class Dashboard {
 
     title.value = '';
     comment.value = '';
+  }
+
+  reorderBooks(book: Book) {
+    this.books.sort((a, b) => b.rating - a.rating);
   }
 }

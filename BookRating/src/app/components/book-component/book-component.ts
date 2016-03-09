@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Book} from '../../models/book';
 
 @Component({
@@ -17,7 +17,15 @@ import {Book} from '../../models/book';
 })
 export class BookComponent {
   @Input() book: Book;
+  @Output() rated: EventEmitter<Book> = new EventEmitter<Book>();
 
-  rateUp() { this.book.rating++; }
-  rateDown() { this.book.rating--; }
+  rateUp() {
+    this.book.rating++;
+    this.rated.emit(this.book);
+  }
+
+  rateDown() {
+    this.book.rating--;
+    this.rated.emit(this.book);
+  }
 }
