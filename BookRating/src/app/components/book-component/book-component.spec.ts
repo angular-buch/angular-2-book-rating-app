@@ -18,10 +18,5 @@ describe('BookComponent Component', () => {
   beforeEachProviders((): any[] => []);
 
 
-  it('should ...', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-    return tcb.createAsync(BookComponent).then((fixture) => {
-      fixture.detectChanges();
-    });
-  }));
 
 });
