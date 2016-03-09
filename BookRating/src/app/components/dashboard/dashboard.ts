@@ -1,17 +1,18 @@
 import {Component} from 'angular2/core';
+import {Book} from '../../models/book';
+import {BookComponent} from '../book-component/book-component';
 
 @Component({
   selector: 'dashboard',
-  directives: [], // later: BookComponent
+  directives: [BookComponent],
   template: `
-    <h1>Bücher</h1>
-    <p>{{ books }}</p>
-   `
+    <h1>Buch</h1>
+    <book [book]="book"></book>`
 })
 export class Dashboard {
-  books: string[];
+  book: Book;
 
   constructor() {
-    this.books = ['Angular 2', 'Aurelia'];
+    this.book = new Book('Angular 2', 'Eine praktische Einführung');
   }
 }
