@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Book} from '../../models/book';
 import {BookComponent} from '../book-component/book-component';
 
@@ -21,7 +21,7 @@ import {BookComponent} from '../book-component/book-component';
      </div>
 
      <hr>
-     <book *ngFor="#book of books" [book]="book" (rated)="reorderBooks($event)"></book>`
+     <book *ngFor="let book of books" [book]="book" (rated)="reorderBooks($event)"></book>`
 })
 export class Dashboard {
   books: Book[];

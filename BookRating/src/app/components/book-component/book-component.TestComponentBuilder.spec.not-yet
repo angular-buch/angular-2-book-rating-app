@@ -1,5 +1,6 @@
-import {it, describe, expect, inject, injectAsync, beforeEach, TestComponentBuilder} from 'angular2/testing';
-import {provide} from 'angular2/core';
+import {it, describe, expect, inject, injectAsync, beforeEach} from '@angular/core/testing';
+import {TestComponentBuilder} from '@angular/compiler/testing'
+import {provide} from '@angular/core';
 import {BookComponent} from './book-component';
 import {Book} from '../../models/book';
 

@@ -1,4 +1,4 @@
-import {it, describe, expect, inject, beforeEachProviders} from 'angular2/testing';
+import {it, describe, expect, inject, beforeEachProviders} from '@angular/core/testing';
 import {BookComponent} from './book-component';
 import {Book} from '../../models/book';
 
