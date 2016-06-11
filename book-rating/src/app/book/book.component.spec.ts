@@ -37,7 +37,7 @@ describe('Component: Book', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-book></app-book>
+    <br-book></br-book>
   `,
   directives: [BookComponent]
 })
