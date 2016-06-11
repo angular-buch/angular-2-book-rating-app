@@ -1,15 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Book } from '../shared';
 
 @Component({
   moduleId: module.id,
   selector: 'br-book',
-  templateUrl: 'book.component.html',
-  styleUrls: ['book.component.css']
+  templateUrl: 'book.component.html'
 })
 export class BookComponent {
   @Input() information: Book;
 
-  constructor() {
-  }
+  constructor() { }
 }
