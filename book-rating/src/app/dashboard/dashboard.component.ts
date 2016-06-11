@@ -6,7 +6,6 @@ import { Book } from '../shared';
   moduleId: module.id,
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
-  styleUrls: ['dashboard.component.css'],
   directives: [BookComponent]
 })
 export class DashboardComponent implements OnInit {
