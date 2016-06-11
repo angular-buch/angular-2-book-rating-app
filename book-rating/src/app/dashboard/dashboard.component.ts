@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-dashboard',
+  selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {}
+  books: string[];
+
+  constructor(){}
 
   ngOnInit() {
+    this.books = ['Angular 2', 'Aurelia'];
   }
 
 }
