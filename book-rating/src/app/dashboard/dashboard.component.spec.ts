@@ -37,7 +37,7 @@ describe('Component: Dashboard', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-dashboard></app-dashboard>
+    <br-dashboard></br-dashboard>
   `,
   directives: [DashboardComponent]
 })
