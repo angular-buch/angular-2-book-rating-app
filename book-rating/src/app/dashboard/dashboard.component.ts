@@ -6,11 +6,13 @@ import { Book } from '../shared';
   moduleId: module.id,
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
-  directives: [BookComponent]
+  styleUrls: ['dashboard.component.css'],
+  directives: [BookComponent],
 })
 export class DashboardComponent implements OnInit {
 
   books: Book[];
+  updated: Book;
 
   ngOnInit() {
     this.books = [
@@ -25,6 +27,7 @@ export class DashboardComponent implements OnInit {
   }
 
   sort(book: Book) {
+    this.updated = book;
     this.books.sort((current, next) => next.rating - current.rating);
   }
 }
