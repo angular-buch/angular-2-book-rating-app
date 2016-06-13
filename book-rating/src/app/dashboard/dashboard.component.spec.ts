@@ -49,6 +49,29 @@ describe('Component: Dashboard', () => {
       expect(dashboard.books.length).toEqual(expected)
     });
   });
+
+  describe('Filling the form and clicking on "Submit"', () => {
+    it('creates a new of the book', () => {
+      return builder
+        .createAsync(DashboardComponentTestController)
+        .then((fixture: ComponentFixture<DashboardComponent>) => {
+          let query = fixture.debugElement.query(By.directive(DashboardComponent));
+          let dashboard: DashboardComponent = query.componentInstance;
+          dashboard.ngOnInit();
+
+          let title: Element = fixture.nativeElement.querySelector('input.form-control[name="title"]');
+          title.setAttribute('value', 'Angular 2');
+
+          let description: Element = fixture.nativeElement.querySelector('textarea.form-control[name="comment"]');
+          description.innerHTML = 'Workshop';
+
+          let submit: Element = fixture.nativeElement.querySelector('button.btn.btn-danger');
+          submit.dispatchEvent(new Event('click'));
+
+          expect(dashboard.books.length).toEqual(3);
+        });
+    });
+  });
 });
 
 @Component({
