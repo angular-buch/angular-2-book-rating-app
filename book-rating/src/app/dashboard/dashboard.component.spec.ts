@@ -19,20 +19,6 @@ describe('Component: Dashboard', () => {
     builder = tcb;
   }));
 
-  it('injects the component', inject([DashboardComponent],
-      (component: DashboardComponent) => {
-    expect(component).toBeTruthy();
-  }));
-
-  it('creates the component', inject([], () => {
-    return builder.createAsync(DashboardComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(DashboardComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
-
   describe('Creating a new book', () => {
     let dashboard: DashboardComponent;
 
@@ -55,6 +41,9 @@ describe('Component: Dashboard', () => {
       return builder
         .createAsync(DashboardComponentTestController)
         .then((fixture: ComponentFixture<DashboardComponent>) => {
+          console.log(fixture.debugElement);
+          console.log(fixture.nativeElement);
+          
           let query = fixture.debugElement.query(By.directive(DashboardComponent));
           let dashboard: DashboardComponent = query.componentInstance;
           dashboard.ngOnInit();
