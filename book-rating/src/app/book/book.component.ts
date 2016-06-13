@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../shared';
 
 @Component({
@@ -8,6 +8,20 @@ import { Book } from '../shared';
 })
 export class BookComponent {
   @Input() information: Book;
+  @Output() rated: EventEmitter<Book>;
 
-  constructor() { }
+  constructor() { 
+    this.rated = new EventEmitter<Book>();
+  }
+
+  rateUp() {
+    this.information.rateUp();
+    this.rated.emit(this.information);
+    
+  }
+
+  rateDown() {
+    this.information.rateDown();
+    this.rated.emit(this.information);
+  }
 }
