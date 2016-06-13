@@ -4,12 +4,13 @@ import {
   describe,
   expect,
   it,
-  inject,
+  inject
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BookComponent } from './book.component';
+import { Book } from '../shared';
 
 describe('Component: Book', () => {
   let builder: TestComponentBuilder;
@@ -19,19 +20,29 @@ describe('Component: Book', () => {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([BookComponent],
-      (component: BookComponent) => {
-    expect(component).toBeTruthy();
-  }));
+it('should fire rated-event on rateUp click', () => {
+    return builder
+      .createAsync(BookComponent)
+      .then((fixture) => {
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(BookComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(BookComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
+        // given a component instance with an initialized book input
+        var book: BookComponent = fixture.componentInstance;
+        book.information = new Book('Test Title', 'Test Comment');
+
+        // we fake the event emitter with a spy
+        spyOn(book.rated, 'emit');
+
+        // when we click on rateUp button
+        var button = fixture.nativeElement.querySelector('button:first-of-type');
+        button.dispatchEvent(new Event('click'));
+
+        // we trigger the change detection
+        fixture.detectChanges();
+
+        // then the event emitter should have fired an event
+        expect(book.rated.emit).toHaveBeenCalled();
       });
-  }));
+  });
 });
 
 @Component({
