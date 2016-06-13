@@ -34,23 +34,15 @@ describe('Component: Dashboard', () => {
   }));
 
   describe('Creating a new book', () => {
-    it('adds a book to the list', () => {
-      return builder.createAsync(DashboardComponentTestController)
-        .then((fixture: ComponentFixture<any>) => {
-          let query = fixture.debugElement.query(By.directive(DashboardComponent));
-          let dashboard = <DashboardComponent> query.componentInstance;
-          
-          dashboard.ngOnInit();
-          
-          let booksCount = dashboard.books.length;
-          let expected = booksCount + 1;
+    it('adds a book to the list', inject([DashboardComponent], (dashboard: DashboardComponent) => {
+      let expected = dashboard.books.length + 1;
 
-          dashboard.add({value: 'title'}, {value: 'description'});
+      dashboard.ngOnInit();
+      dashboard.add({value: 'title'}, {value: 'description'});
 
-          expect(dashboard.books.length).toEqual(expected)
-        });
-    });
-  })
+      expect(dashboard.books.length).toEqual(expected)
+    }));
+  });
 });
 
 @Component({
