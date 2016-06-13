@@ -29,9 +29,16 @@ describe('Book', () => {
     });
 
     it('decreases the rating by one when it is rated down', () => {
+      book.rateUp();
       book.rateDown();
 
-      expect(book.rating).toEqual(-1);
+      expect(book.rating).toEqual(0);
+    });
+
+    it('has no rating smaller than 0', () => {
+      book.rateDown();
+
+      expect(book.rating).toEqual(0);
     });
   });
 });
