@@ -34,14 +34,20 @@ describe('Component: Dashboard', () => {
   }));
 
   describe('Creating a new book', () => {
-    it('adds a book to the list', inject([DashboardComponent], (dashboard: DashboardComponent) => {
+    let dashboard: DashboardComponent;
+
+    beforeEach(inject([DashboardComponent], (_dashboard_: DashboardComponent) => {
+      dashboard = _dashboard_;
+      dashboard.ngOnInit();
+    }));
+
+    it('adds a book to the list', () => {
       let expected = dashboard.books.length + 1;
 
-      dashboard.ngOnInit();
       dashboard.add({value: 'title'}, {value: 'description'});
 
       expect(dashboard.books.length).toEqual(expected)
-    }));
+    });
   });
 });
 
