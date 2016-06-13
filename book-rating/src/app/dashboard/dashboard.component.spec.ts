@@ -19,12 +19,12 @@ describe('Component: Dashboard', () => {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([DashboardComponent],
+  it('injects the component', inject([DashboardComponent],
       (component: DashboardComponent) => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create the component', inject([], () => {
+  it('creates the component', inject([], () => {
     return builder.createAsync(DashboardComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(DashboardComponent));
@@ -32,6 +32,25 @@ describe('Component: Dashboard', () => {
         expect(query.componentInstance).toBeTruthy();
       });
   }));
+
+  describe('Creating a new book', () => {
+    it('adds a book to the list', () => {
+      return builder.createAsync(DashboardComponentTestController)
+        .then((fixture: ComponentFixture<any>) => {
+          let query = fixture.debugElement.query(By.directive(DashboardComponent));
+          let dashboard = <DashboardComponent> query.componentInstance;
+          
+          dashboard.ngOnInit();
+          
+          let booksCount = dashboard.books.length;
+          let expected = booksCount + 1;
+
+          dashboard.add({value: 'title'}, {value: 'description'});
+
+          expect(dashboard.books.length).toEqual(expected)
+        });
+    });
+  })
 });
 
 @Component({
@@ -41,6 +60,5 @@ describe('Component: Dashboard', () => {
   `,
   directives: [DashboardComponent]
 })
-class DashboardComponentTestController {
-}
+class DashboardComponentTestController { }
 
