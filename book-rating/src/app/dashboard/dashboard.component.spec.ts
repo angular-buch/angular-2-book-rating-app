@@ -41,9 +41,6 @@ describe('Component: Dashboard', () => {
       return builder
         .createAsync(DashboardComponentTestController)
         .then((fixture: ComponentFixture<DashboardComponent>) => {
-          console.log(fixture.debugElement);
-          console.log(fixture.nativeElement);
-          
           let query = fixture.debugElement.query(By.directive(DashboardComponent));
           let dashboard: DashboardComponent = query.componentInstance;
           dashboard.ngOnInit();
