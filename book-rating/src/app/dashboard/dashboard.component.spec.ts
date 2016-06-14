@@ -37,25 +37,35 @@ describe('Component: Dashboard', () => {
   });
 
   describe('Filling the form and clicking on "Submit"', () => {
-    it('creates a new of the book', () => {
+    let fixture: ComponentFixture<DashboardComponent>;
+    let dashboard: DashboardComponent;
+
+    beforeEach(() => {
       return builder
         .createAsync(DashboardComponentTestController)
-        .then((fixture: ComponentFixture<DashboardComponent>) => {
-          let query = fixture.debugElement.query(By.directive(DashboardComponent));
-          let dashboard: DashboardComponent = query.componentInstance;
+        .then((_fixture_: ComponentFixture<DashboardComponent>) => {
+          fixture = _fixture_;
+
+          dashboard = fixture
+                        .debugElement
+                        .query(By.directive(DashboardComponent))
+                        .componentInstance;
+
           dashboard.ngOnInit();
-
-          let title: Element = fixture.nativeElement.querySelector('input.form-control[name="title"]');
-          title.setAttribute('value', 'Angular 2');
-
-          let description: Element = fixture.nativeElement.querySelector('textarea.form-control[name="comment"]');
-          description.innerHTML = 'Workshop';
-
-          let submit: Element = fixture.nativeElement.querySelector('button.btn.btn-danger');
-          submit.dispatchEvent(new Event('click'));
-
-          expect(dashboard.books.length).toEqual(3);
         });
+    });
+
+    it('creates a new of the book', () => {
+      let title: Element = fixture.nativeElement.querySelector('input.form-control[name="title"]');
+      title.setAttribute('value', 'Angular 2');
+
+      let description: Element = fixture.nativeElement.querySelector('textarea.form-control[name="comment"]');
+      description.innerHTML = 'Workshop';
+
+      let submit: Element = fixture.nativeElement.querySelector('button.btn.btn-danger');
+      submit.dispatchEvent(new Event('click'));
+
+      expect(dashboard.books.length).toEqual(3);
     });
   });
 });
