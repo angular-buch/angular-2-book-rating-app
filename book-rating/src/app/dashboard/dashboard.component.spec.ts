@@ -10,6 +10,7 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
+import { element} from '../../../test/test.helper';
 
 describe('Component: Dashboard', () => {
   let builder: TestComponentBuilder;
@@ -39,12 +40,14 @@ describe('Component: Dashboard', () => {
   describe('Filling the form and clicking on "Submit"', () => {
     let fixture: ComponentFixture<DashboardComponent>;
     let dashboard: DashboardComponent;
+    let control;
 
     beforeEach(() => {
       return builder
         .createAsync(DashboardComponentTestController)
         .then((_fixture_: ComponentFixture<DashboardComponent>) => {
           fixture = _fixture_;
+          control = element(fixture);
 
           dashboard = fixture
                         .debugElement
@@ -56,14 +59,14 @@ describe('Component: Dashboard', () => {
     });
 
     it('creates a new of the book', () => {
-      let title: Element = fixture.nativeElement.querySelector('input.form-control[name="title"]');
-      title.setAttribute('value', 'Angular 2');
+      control.select('input.form-control[name="title"]')
+             .setAttribute('value', 'Angular 2');
 
-      let description: Element = fixture.nativeElement.querySelector('textarea.form-control[name="comment"]');
-      description.innerHTML = 'Workshop';
+      control.select('textarea.form-control[name="comment"]')
+             .innerHTML = 'Workshop';
 
-      let submit: Element = fixture.nativeElement.querySelector('button.btn.btn-danger');
-      submit.dispatchEvent(new Event('click'));
+      control.select('button.btn.btn-danger')
+             .dispatchEvent(new Event('click'));
 
       expect(dashboard.books.length).toEqual(3);
     });
