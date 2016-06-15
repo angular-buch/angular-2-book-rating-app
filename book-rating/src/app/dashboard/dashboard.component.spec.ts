@@ -10,7 +10,7 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
-import { element} from '../../../test/test.helper';
+import { FixtureControl } from './fixture-control';
 
 describe('Component: Dashboard', () => {
   let builder: TestComponentBuilder;
@@ -47,8 +47,9 @@ describe('Component: Dashboard', () => {
         .createAsync(DashboardComponentTestController)
         .then((_fixture_: ComponentFixture<DashboardComponent>) => {
           fixture = _fixture_;
-          control = element(fixture);
-
+          
+          control = new FixtureControl(fixture);
+          
           dashboard = fixture
                         .debugElement
                         .query(By.directive(DashboardComponent))
