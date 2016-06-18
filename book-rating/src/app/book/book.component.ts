@@ -1,10 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 import { Book } from '../shared';
 
 @Component({
   moduleId: module.id,
   selector: 'br-book',
-  templateUrl: 'book.component.html'
+  templateUrl: 'book.component.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 export class BookComponent {
   @Input() book: Book;

@@ -9,8 +9,7 @@ import { BookStoreService } from '../services/book-store.service';
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [BookComponent],
-  providers: [BookStoreService]
+  directives: [BookComponent]
 })
 export class DashboardComponent implements OnInit {
 

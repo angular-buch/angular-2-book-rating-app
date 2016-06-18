@@ -13,8 +13,8 @@ export class BookStoreService {
     ];
   }
 
-  getBook(index: number): Book {
-      return this.books[index];
+  getBook(id: String): Book {
+      return this.books.find((book) => book.id === id);
   }
 
   getAll(): Book[] {

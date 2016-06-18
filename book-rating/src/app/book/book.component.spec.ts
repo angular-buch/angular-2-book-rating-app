@@ -27,7 +27,7 @@ it('should fire rated-event on rateUp click', () => {
 
         // given a component instance with an initialized book input
         var book: BookComponent = fixture.componentInstance;
-        book.information = new Book('Test Title', 'Test Comment');
+        book.book = new Book('Test Title', 'Test Comment');
 
         // we fake the event emitter with a spy
         spyOn(book.rated, 'emit');

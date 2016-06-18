@@ -5,7 +5,5 @@
       <h2>{{ book?.title }} <small>Stars {{ book?.rating }}</small></h2>
       <p>{{ book?.description }}</p>
 
-      <button (click)="rateUp()" class="btn btn-default glyphicon glyphicon-thumbs-up"></button>
-      <button (click)="rateDown()" class="btn btn-default glyphicon glyphicon-thumbs-down"></button>
-      <a [routerLink]="['book', book?.id]" class="btn btn-default">Anzeigen</a>
+      <a [routerLink]="['']" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Zurück zur Liste</a>
 </div>
