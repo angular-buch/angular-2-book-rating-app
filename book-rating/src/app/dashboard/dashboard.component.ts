@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BookComponent } from '../book';
 import { Book } from '../shared';
+import { BookStoreService } from '../services/book-store.service';
 
 @Component({
   moduleId: module.id,
@@ -8,26 +10,32 @@ import { Book } from '../shared';
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
   directives: [BookComponent],
+  providers: [BookStoreService]
 })
 export class DashboardComponent implements OnInit {
 
   books: Book[];
   updated: Book;
 
+  constructor(private bs: BookStoreService) {}
+
   ngOnInit() {
-    this.books = [
-      new Book('Angular 2', 'Einstieg in die komponentenbasierte Entwicklung'),
-      new Book('Bericht DWX 2016', 'Das haben wir erlebt')];
+    this.updateBooks();
   }
 
   add(title, comment) {
     var newBook = new Book(title.value, comment.value);
-    this.books.push(newBook);
+    this.bs.addBook(newBook);
     title.value = comment.value = '';
   }
 
   sort(book: Book) {
+    this.updateBooks();
     this.updated = book;
     this.books.sort((current, next) => next.rating - current.rating);
+  }
+
+  updateBooks() {
+    this.books = this.bs.getAll();
   }
 }
