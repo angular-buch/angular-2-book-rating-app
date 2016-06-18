@@ -7,7 +7,7 @@ import { Book } from '../shared';
   templateUrl: 'book.component.html'
 })
 export class BookComponent {
-  @Input() information: Book;
+  @Input() book: Book;
   @Output() rated: EventEmitter<Book>;
 
   constructor() { 
@@ -15,13 +15,13 @@ export class BookComponent {
   }
 
   rateUp() {
-    this.information.rateUp();
-    this.rated.emit(this.information);
+    this.book.rateUp();
+    this.rated.emit(this.book);
     
   }
 
   rateDown() {
-    this.information.rateDown();
-    this.rated.emit(this.information);
+    this.book.rateDown();
+    this.rated.emit(this.book);
   }
 }

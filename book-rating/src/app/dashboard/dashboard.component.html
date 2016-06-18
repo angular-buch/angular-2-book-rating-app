@@ -16,4 +16,4 @@
 </div>
 
 <hr>
-<br-book [information]="book" *ngFor="let book of books" (rated)="sort($event)"></br-book>
+<br-book [book]="b" *ngFor="let b of books" (rated)="sort($event)"></br-book>
