@@ -4,3 +4,4 @@ _old/src/app/**/*.js.map
 _old/src/test/**/*.js
 _old/src/test/**/*.js.map
 
+.DS_Store
