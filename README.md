@@ -12,6 +12,7 @@ Download or clone the app from Github.
 Then run the following commands:
 
 ```cmd
+cd book-rating
 npm install
 npm start
 ```
