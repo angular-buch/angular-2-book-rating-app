@@ -1,16 +1,30 @@
 import {
   beforeEach,
   beforeEachProviders,
-  describe,
+  describe, fdescribe,
   expect,
   it,
-  inject
+  inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, provide } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BookComponent } from './book.component';
 import { Book } from '../shared';
+
+
+/* workparound, see https://github.com/angular/vladivostok/issues/45  */
+import { Router, ActivatedRoute } from '@angular/router';
+class MockRouter { createUrlTree() {} }
+class MockActivatedRoute { }
+
+beforeEachProviders(() => [
+  provide(Router, { useClass: MockRouter }),
+  provide(ActivatedRoute, { useClass: MockActivatedRoute })
+]);
+/* workaround */
+
+
 
 describe('Component: Book', () => {
   let builder: TestComponentBuilder;

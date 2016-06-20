@@ -10,12 +10,13 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
+import { BookStoreService } from '../services/book-store.service'
 import { FixtureControl } from './fixture-control';
 
 describe('Component: Dashboard', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [DashboardComponent]);
+  beforeEachProviders(() => [BookStoreService, DashboardComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
