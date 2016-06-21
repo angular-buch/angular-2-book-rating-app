@@ -11,12 +11,13 @@ import { Book } from '../shared';
 })
 export class DashboardComponent implements OnInit {
 
-  book: Book;
+  books: Book[];
 
   constructor() {}
 
   ngOnInit() {
-    this.book = new Book('Angular 2', 'Komponentenorientierte Entwicklung');
+    this.books = [new Book('Angular 2', 'Komponentenorientierte Entwicklung'),
+                  new Book('Aurelia', 'by Rob Eisenberg')];
   }
 
 }
