@@ -1,2 +1,18 @@
+<form class="form">
+  <div class="form-group">
+    <div><label for="title">Title</label></div>
+    <div><input type="text" class="form-control" name="title" #title></div>
+  </div>
+  <div class="form-group">
+    <div><label for="description">Description</label></div>
+    <div><textarea class="form-control" name="description" #description></textarea></div>
+  </div>
+  <div class="form-group">
+    <button (click)="add(title, description)" class="btn btn-danger">Submit</button>
+  </div>
+</form>
+
+<hr>
+
 <br-book [book]="book"
          *ngFor="let book of books"></br-book>

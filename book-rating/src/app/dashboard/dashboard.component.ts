@@ -15,6 +15,12 @@ export class DashboardComponent implements OnInit {
 
   constructor() {}
 
+  add(title, description) {
+    this.books.push(new Book(title.value, description.value));
+
+    title.value = description.value = '';
+  }
+
   ngOnInit() {
     this.books = [new Book('Angular 2', 'Komponentenorientierte Entwicklung'),
                   new Book('Aurelia', 'by Rob Eisenberg')];
