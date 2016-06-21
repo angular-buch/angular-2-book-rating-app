@@ -1,20 +1,21 @@
 /* tslint:disable:no-unused-variable */
 
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
+  beforeEachProviders, describe, expect, it
 } from '@angular/core/testing';
 
-import { BookComponent } from './book.component';
+import {BookComponent} from './book.component';
+import {Book} from '../shared';
 
-describe('Component: Book', () => {
-  it('should create an instance', () => {
+describe('Rate a book', () => {
+  beforeEachProviders(() => [BookComponent]);
+
+  it('should increase the rating by one', () => {
     let component = new BookComponent();
-    expect(component).toBeTruthy();
+    
+    component.book = new Book('title', 'description');
+    component.rateUp();
+
+    expect(component.book.rating).toBe(1);
   });
 });
