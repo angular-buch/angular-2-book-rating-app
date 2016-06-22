@@ -23,7 +23,7 @@
     }
   },
   "defaults": {
-    "prefix": "app",
+    "prefix": "br",
     "sourceDir": "src",
     "styleExt": "css",
     "prefixInterfaces": false,
