@@ -4,6 +4,7 @@ import { BookComponent } from '../book';
 import { CreateBookComponent } from '../create-book';
 import { Book } from '../shared';
 import { BookStoreService } from '../services/book-store.service';
+import { Http } from '@angular/http';
 
 @Component({
   moduleId: module.id,
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   books: Book[];
   updated: Book;
 
-  constructor(private bs: BookStoreService) {}
+  constructor(private bs: BookStoreService, private http: Http) {}
 
   ngOnInit() {
     this.updateBooks();
@@ -34,6 +35,12 @@ export class DashboardComponent implements OnInit {
   }
 
   updateBooks() {
-    this.books = this.bs.getAll();
+    //this.books = this.bs.getAll();
+
+    this.http
+      .get('http://book-monkey2-api.angular2buch.de/books') // PLURAL S!
+      .subscribe(response => {
+        this.books = response.json();
+      });
   }
 }

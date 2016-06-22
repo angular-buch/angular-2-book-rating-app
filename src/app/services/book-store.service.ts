@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 import { Book } from '../shared';
 
 @Injectable()
 export class BookStoreService {
+
+  private api: string = 'http://book-monkey2-api.angular2buch.de/books/';
   books: Book[];
 
-  constructor() {
-    this.books = [
-      new Book('Angular 2', 'Einstieg in die komponentenbasierte Entwicklung'),
-      new Book('Bericht DWX 2016', 'Das haben wir erlebt')
-    ];
+  constructor(private http: Http) {
+    // this.headers.append('Content-Type', 'application/json');
   }
 
   getBook(isbn: String): Book {
