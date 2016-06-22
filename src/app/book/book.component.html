@@ -8,4 +8,5 @@
       <button (click)="rateUp()" class="btn btn-default glyphicon glyphicon-thumbs-up"></button>
       <button (click)="rateDown()" class="btn btn-default glyphicon glyphicon-thumbs-down"></button>
       <a [routerLink]="['book', book?.isbn]" class="btn btn-default">Anzeigen</a>
+      <a (click)="delete()" class="btn btn-default glyphicon glyphicon-trash"></a>
 </div>

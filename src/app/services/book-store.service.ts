@@ -14,9 +14,9 @@ export class BookStoreService {
 
   constructor(private http: Http) {
     this.headers.append('Content-Type', 'application/json');
-   }
+  }
 
-  getBook(isbn: string): Observable<Book> {
+  getSingle(isbn: string): Observable<Book> {
       return this.http
         .get(`${this.api}/book/${isbn}`)   // kein PLURAL S
         .map(response => response.json())

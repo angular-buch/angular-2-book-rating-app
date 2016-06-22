@@ -11,20 +11,20 @@ import { Book } from '../shared';
 })
 export class BookComponent {
   @Input() book: Book;
-  @Output() rated: EventEmitter<Book>;
-
-  constructor() { 
-    this.rated = new EventEmitter<Book>();
-  }
+  @Output() rated: EventEmitter<Book> = new EventEmitter<Book>();
+  @Output() deleted: EventEmitter<Book> = new EventEmitter<Book>();
 
   rateUp() {
     this.book.rateUp();
-    this.rated.emit(this.book);
-    
+    this.rated.emit(this.book);  
   }
 
   rateDown() {
     this.book.rateDown();
     this.rated.emit(this.book);
+  }
+
+  delete() {
+     this.deleted.emit(this.book);
   }
 }

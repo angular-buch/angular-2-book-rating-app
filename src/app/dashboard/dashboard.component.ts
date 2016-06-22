@@ -21,32 +21,27 @@ export class DashboardComponent implements OnInit {
   constructor(private bs: BookStoreService) {}
 
   ngOnInit() {
-    this.updateBooks();
+    this.bs
+      .getAll().subscribe(books => this.books = books );
   }
 
   add(book: Book) {
-    this.bs.create(book)
-      .subscribe(params => {
-        this.updateBooks();
-      })
+    this.bs
+      .create(book)
+      .subscribe(params => this.books.push(book));
   }
 
-  delete(isbn: string) {
-    this.bs.delete(isbn)     
+  delete(book: Book) {
+    this.bs
+      .delete(book.isbn)     
       .subscribe(params => {
-        this.updateBooks();
-      })
+        this.books = this.books.filter((c) => c != book)
+      });
   }
+
 
   sort(book: Book) {
-    //this.updateBooks();
-    this.updated = book;
     this.books.sort((current, next) => next.rating - current.rating);
-  }
-
-  updateBooks() {
-    return this.bs.getAll().subscribe(books => {
-      this.books = books;
-    });
+    this.updated = book;
   }
 }
