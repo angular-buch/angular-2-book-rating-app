@@ -3,8 +3,7 @@ import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { Book } from '../shared';
 import { BookStoreService } from '../services/book-store.service';
-import { Http } from '@angular/http';
-
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
@@ -15,18 +14,15 @@ import { Http } from '@angular/http';
 export class BookDetailsComponent implements OnInit {
   book: Book;
 
-  constructor(private route: ActivatedRoute, private bs: BookStoreService, private http: Http) {}
+  constructor(private route: ActivatedRoute, private bs: BookStoreService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       let isbn = params['isbn'];
-      // this.book = this.bs.getBook(isbn);
-
-      this.http
-        .get(`http://book-monkey2-api.angular2buch.de/book/${isbn}`)   // kein PLURAL S
-        .subscribe(response => {
-          this.book = response.json();
-        });
+      
+      this.bs.getBook(isbn).subscribe(book => {
+        this.book = book;
+      });
     });
   }
 }

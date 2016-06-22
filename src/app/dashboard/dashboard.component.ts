@@ -4,7 +4,7 @@ import { BookComponent } from '../book';
 import { CreateBookComponent } from '../create-book';
 import { Book } from '../shared';
 import { BookStoreService } from '../services/book-store.service';
-import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
@@ -18,29 +18,35 @@ export class DashboardComponent implements OnInit {
   books: Book[];
   updated: Book;
 
-  constructor(private bs: BookStoreService, private http: Http) {}
+  constructor(private bs: BookStoreService) {}
 
   ngOnInit() {
     this.updateBooks();
   }
 
   add(book: Book) {
-    this.bs.addBook(book);
+    this.bs.create(book)
+      .subscribe(params => {
+        this.updateBooks();
+      })
+  }
+
+  delete(isbn: string) {
+    this.bs.delete(isbn)     
+      .subscribe(params => {
+        this.updateBooks();
+      })
   }
 
   sort(book: Book) {
-    this.updateBooks();
+    //this.updateBooks();
     this.updated = book;
     this.books.sort((current, next) => next.rating - current.rating);
   }
 
   updateBooks() {
-    //this.books = this.bs.getAll();
-
-    this.http
-      .get('http://book-monkey2-api.angular2buch.de/books') // PLURAL S!
-      .subscribe(response => {
-        this.books = response.json();
-      });
+    return this.bs.getAll().subscribe(books => {
+      this.books = books;
+    });
   }
 }
