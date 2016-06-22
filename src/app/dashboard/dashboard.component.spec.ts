@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
 import { BookStoreService } from '../services/book-store.service'
+import { Book } from '../shared'
 import { FixtureControl } from './fixture-control';
 
 describe('Component: Dashboard', () => {
@@ -32,7 +33,7 @@ describe('Component: Dashboard', () => {
     it('adds a book to the list', () => {
       let expected = dashboard.books.length + 1;
 
-      dashboard.add({value: 'title'}, {value: 'description'});
+      dashboard.add(new Book('title','description'));
 
       expect(dashboard.books.length).toEqual(expected)
     });
