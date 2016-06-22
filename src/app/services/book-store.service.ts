@@ -13,8 +13,8 @@ export class BookStoreService {
     ];
   }
 
-  getBook(id: String): Book {
-      return this.books.find((book) => book.id === id);
+  getBook(isbn: String): Book {
+      return this.books.find((book) => book.isbn === isbn);
   }
 
   getAll(): Book[] {
