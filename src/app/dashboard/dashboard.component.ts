@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { BookComponent } from '../book';
 import { CreateBookComponent } from '../create-book';
 import { Book } from '../shared';
 import { BookStoreService } from '../services/book-store.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   moduleId: module.id,
@@ -14,7 +14,6 @@ import { Observable } from 'rxjs/Observable';
   directives: [BookComponent, CreateBookComponent]
 })
 export class DashboardComponent implements OnInit {
-
   books: Book[];
   updated: Book;
 
@@ -38,7 +37,6 @@ export class DashboardComponent implements OnInit {
         this.books = this.books.filter((c) => c != book)
       });
   }
-
 
   sort(book: Book) {
     this.books.sort((current, next) => next.rating - current.rating);
