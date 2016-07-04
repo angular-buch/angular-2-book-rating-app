@@ -8,7 +8,9 @@ import { Book } from '../shared';
   styleUrls: ['create-book.component.css']
 })
 export class CreateBookComponent{
-  @Output() bookCreated: EventEmitter<Book>
+  @Output() bookCreated: EventEmitter<Book>;
+
+  categories: Array<string>;
 
   constructor() {
     this.bookCreated = new EventEmitter<Book>();
