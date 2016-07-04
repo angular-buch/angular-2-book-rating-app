@@ -14,11 +14,11 @@ export class CreateBookComponent{
 
   constructor() {
     this.bookCreated = new EventEmitter<Book>();
-    this.book = new Book('', '');
+    this.book = Book.empty();
   }
 
   add() {
     this.bookCreated.emit(this.book);
-    this.book = new Book('', '');
+    this.book = Book.empty();
   }
 }

@@ -7,6 +7,10 @@ export class Book {
     this.isbn = isbn || Math.random().toString(36).substr(2, 9);  
   }
 
+  static empty(): Book {
+    return new Book('', '');
+  }
+
   rateUp() {
     this.rating++;
   }
