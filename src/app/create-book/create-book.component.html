@@ -4,13 +4,26 @@
 <div class="form">
   <div class="form-group">
     <div><label for="title">Title</label></div>
-    <div><input class="form-control" name="title" #title></div>
+    <div>
+      <input 
+        [(ngModel)]="book.title"
+        class="form-control" 
+        name="title"
+        #title>
+    </div>
   </div>
   <div class="form-group">
-    <div><label for="link">Comment</label></div>
-    <div><textarea class="form-control" name="comment" #comment></textarea></div>
+    <div><label for="link">Description</label></div>
+    <div>
+      <textarea 
+        [(ngModel)]="book.description"
+        class="form-control" 
+        name="description" 
+        #description>
+      </textarea>
+    </div>
   </div>
   <div class="form-group">
-   <button (click)="submit(title, comment)" class="btn btn-danger">Submit</button>
+   <button (click)="add()" class="btn btn-danger">Add</button>
   </div>
 </div>

@@ -10,14 +10,15 @@ import { Book } from '../shared';
 export class CreateBookComponent{
   @Output() bookCreated: EventEmitter<Book>;
 
-  categories: Array<string>;
+  book: Book;
 
   constructor() {
     this.bookCreated = new EventEmitter<Book>();
+    this.book = new Book('', '');
   }
 
-  submit(title, comment) {
-    this.bookCreated.emit(new Book(title.value, comment.value));
-    title.value = comment.value = '';
+  add() {
+    this.bookCreated.emit(this.book);
+    this.book = new Book('', '');
   }
 }
