@@ -13,14 +13,19 @@ import { BookComponent } from './book.component';
 import { Book } from '../shared';
 
 
-/* workparound, see https://github.com/angular/vladivostok/issues/45  */
+/* workaround
+  Create `@angular/router/testing` and `ROUTER_FAKE_PROVIDERS`
+  see https://github.com/angular/angular/issues/9496 */
 import { Router, ActivatedRoute } from '@angular/router';
+import { LocationStrategy } from '@angular/common';
 class MockRouter { createUrlTree() {} }
 class MockActivatedRoute { }
+class MockLocationStrategy { }
 
 beforeEachProviders(() => [
   provide(Router, { useClass: MockRouter }),
-  provide(ActivatedRoute, { useClass: MockActivatedRoute })
+  provide(ActivatedRoute, { useClass: MockActivatedRoute }),
+  provide(LocationStrategy, {useClass: MockLocationStrategy })
 ]);
 /* workaround */
 
