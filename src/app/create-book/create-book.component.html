@@ -1,32 +1,35 @@
-<div class="book-rated" *ngIf="updated">
-  Book {{ updated?.title }} has been updated.
-</div>
-<div class="form">
-  <div class="form-group">
-    <div><label for="title">Title</label></div>
-    <div>
-      <input 
-        [(ngModel)]="book.title"
-        class="form-control" 
-        name="title"
-        #title
-        required
-        minlength="3"> Debug: {{ title.className }}
+<form #bookCreation="ngForm">
+  <div class="book-rated" *ngIf="updated">
+    Book {{ updated?.title }} has been updated.
+  </div>
+  <div class="form">
+    <div class="form-group">
+      <div><label for="title">Title</label></div>
+      <div>
+        <input 
+          [(ngModel)]="book.title"
+          class="form-control" 
+          name="title"
+	  #title
+          required
+          minlength="3"> Debug: {{ title.className }}
+      </div>
+    </div>
+    <div class="form-group">
+      <div><label for="link">Description</label></div>
+      <div>
+        <textarea 
+          [(ngModel)]="book.description"
+          class="form-control" 
+          name="description" 
+          #description>
+        </textarea>
+      </div>
+    </div>
+    <div class="form-group">
+     <button
+       [disabled]="!bookCreation.form.valid"
+       (click)="add()" class="btn btn-danger">Add</button>
     </div>
   </div>
-  <div class="form-group">
-    <div><label for="link">Description</label></div>
-    <div>
-      <textarea 
-        [(ngModel)]="book.description"
-        class="form-control" 
-        name="description" 
-        #description>
-      </textarea>
-       Debug: {{ description.className }}
-    </div>
-  </div>
-  <div class="form-group">
-   <button (click)="add()" class="btn btn-danger">Add</button>
-  </div>
-</div>
+</form>
