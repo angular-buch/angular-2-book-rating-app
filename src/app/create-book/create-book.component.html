@@ -12,8 +12,12 @@
           name="title"
 	  #title
           required
-          minlength="3"> Debug: {{ title.className }}
+          minlength="3"
+          #title="ngModel">
       </div>
+       <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          Der Titel muss mindestens drei Zeichen lang sein.
+        </div>
     </div>
     <div class="form-group">
       <div><label for="link">Description</label></div>
