@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup } from '@angular/forms';
+import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Book } from '../shared';
@@ -37,8 +37,8 @@ export class BookDetailsComponent implements OnInit {
 
   setupForm() {
     this.detailsForm = this.form.group({
-      'title': '',
-      'description': ''
+      'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      'description': ['']
     });
   }
 
