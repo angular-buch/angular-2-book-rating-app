@@ -18,6 +18,8 @@
             <hr>
 
             <a [routerLink]="['']" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Zurück zur Liste</a>
-            <button type="submit" class="btn btn-warning">Aktualisiere Buch</button>
+            <button class="btn btn-warning"
+                    type="submit"
+                    [disabled]="!detailsForm.valid">Aktualisiere Buch</button>
       </div>
 </form>
