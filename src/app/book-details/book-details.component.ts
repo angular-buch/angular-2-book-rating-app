@@ -17,9 +17,11 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private form: FormBuilder, 
-              private bookStore: BookStoreService) {}
+              private bookStore: BookStoreService) { }
 
   ngOnInit() {
+    this.book = Book.empty();
+    
     this.getBook();
     this.setupForm();
   }
@@ -27,7 +29,9 @@ export class BookDetailsComponent implements OnInit {
   getBook() {
     this.route.params.subscribe(params => {
       let isbn = params['isbn'];
-      this.bookStore.getSingle(isbn).subscribe(book => this.book = book);
+      this.bookStore.getSingle(isbn).subscribe(book => {
+        this.book = book;
+      });
     });
   }
 

@@ -6,7 +6,10 @@
             </div>
             <h2>{{ book?.title }} <small>Stars {{ book?.rating }}</small></h2>
             <div>
-                  <textarea class="form-control" [formControl]="detailsForm.controls['description']"></textarea>
+                  <textarea 
+                        class="form-control"
+                        [formControl]="detailsForm.controls['description']"
+                        [(ngModel)]="book.description"></textarea>
             </div>
       
             <hr>
