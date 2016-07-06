@@ -15,7 +15,6 @@ import { BookStoreService } from '../services/book-store.service';
 })
 export class DashboardComponent implements OnInit {
   books: Book[];
-  updated: Book;
 
   constructor(private bs: BookStoreService) {}
 
@@ -40,6 +39,5 @@ export class DashboardComponent implements OnInit {
 
   sort(book: Book) {
     this.books.sort((current, next) => next.rating - current.rating);
-    this.updated = book;
   }
 }
