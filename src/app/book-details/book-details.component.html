@@ -1,17 +1,20 @@
-<form [formGroup]="detailsForm"
-      (ngSubmit)="onSubmit(detailsForm.value)" >
+<form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm.value)">
       <div class="well">
             <div class="thumbnail pull-right">
                   <img src="//gravatar.com/avatar/{{ book?.rating }}?s=80&default=wavatar" />
             </div>
             <h2>{{ book?.title }} <small>Stars {{ book?.rating }}</small></h2>
-            <div>
-                  <textarea 
-                        class="form-control"
-                        [formControl]="detailsForm.controls['description']"
-                        [(ngModel)]="book.description"></textarea>
+            <div class="form-group">
+                  <input class="form-control"
+                         [formControl]="detailsForm.controls['title']"
+                         [(ngModel)]="book.title">
             </div>
-      
+            <div>
+                  <textarea class="form-control" 
+                            [formControl]="detailsForm.controls['description']"
+                            [(ngModel)]="book.description"></textarea>
+            </div>
+
             <hr>
 
             <a [routerLink]="['']" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span> Zurück zur Liste</a>
