@@ -1,0 +1,7 @@
+.ng-dirty.ng-valid {
+    border-left: 4px solid greenyellow;
+}
+
+.ng-dirty.ng-invalid {
+    border-left: 4px solid orangered;
+}

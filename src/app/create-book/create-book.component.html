@@ -9,7 +9,9 @@
         [(ngModel)]="book.title"
         class="form-control" 
         name="title"
-        #title> {{ title.className }}
+        #title
+        required
+        minlength="3"> Debug: {{ title.className }}
     </div>
   </div>
   <div class="form-group">
@@ -21,6 +23,7 @@
         name="description" 
         #description>
       </textarea>
+       Debug: {{ description.className }}
     </div>
   </div>
   <div class="form-group">
