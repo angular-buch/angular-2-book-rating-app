@@ -8,6 +8,8 @@
                   <input class="form-control"
                          [formControl]="detailsForm.controls['isbn']"
                          [(ngModel)]="book.isbn">
+                  <div *ngIf="!detailsForm.controls['isbn'].valid"  
+                        class="ui error message">Geben Sie die ISBN in der richtigen Form an: 111-11111-111</div>
             </div>
              <div class="form-group">
                   <input class="form-control"
