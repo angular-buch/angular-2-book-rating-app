@@ -37,6 +37,7 @@ export class BookDetailsComponent implements OnInit {
 
   setupForm() {
     this.detailsForm = this.form.group({
+      'isbn': ['', Validators.pattern('\\d{3}-\\d{5}-\\d{3}')],
       'title': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'description': ['']
     });
