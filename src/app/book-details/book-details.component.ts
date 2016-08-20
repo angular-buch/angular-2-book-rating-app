@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Book } from '../shared';
@@ -8,19 +8,19 @@ import { BookStoreService } from '../services/book-store.service';
 @Component({
   selector: 'br-book-details',
   templateUrl: 'book-details.component.html',
-  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES]
 })
 export class BookDetailsComponent implements OnInit {
   detailsForm: FormGroup;
   book: Book;
 
   constructor(private route: ActivatedRoute,
-              private form: FormBuilder, 
+              private form: FormBuilder,
               private bookStore: BookStoreService) { }
 
   ngOnInit() {
     this.book = Book.empty();
-    
+
     this.getBook();
     this.setupForm();
   }
@@ -42,7 +42,7 @@ export class BookDetailsComponent implements OnInit {
     });
   }
 
-  onSubmit(value: string): void {  
-    console.log('you submitted value: ', value);  
+  onSubmit(value: string): void {
+    console.log('you submitted value: ', value);
   }
 }

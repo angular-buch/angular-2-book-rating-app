@@ -1,8 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found';
+import { BookDetailsComponent } from './book-details';
 
 const APP_ROUTES: Routes = [
-    { path: '**', pathMatch: 'full', redirectTo: '/dashboard' },
-    { path: 'book/:isbn', loadChildren: 'app/book-details/book-details.module' }
+  { path: '**',         component: NotFoundComponent }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

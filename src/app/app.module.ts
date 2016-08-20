@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { APP_ROUTING } from './app.routes';
 
 import { DashboardModule } from './dashboard/dashboard.module';
+import { BookDetailsModule } from './book-details/book-details.module';
 
 import { BookStoreService } from './services/book-store.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +24,7 @@ import { BookStoreService } from './services/book-store.service';
     HttpModule,
 
     DashboardModule,
+    BookDetailsModule,
     APP_ROUTING
   ],
   providers: [ BookStoreService ],

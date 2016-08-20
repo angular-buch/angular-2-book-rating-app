@@ -14,8 +14,8 @@ import {Http, BaseRequestOptions, Response, ResponseOptions} from '@angular/http
 import {MockBackend} from '@angular/http/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import { BookStoreService } from '../services/book-store.service'
-import { Book } from '../shared'
+import { BookStoreService } from '../services/book-store.service';
+import { Book } from '../shared';
 import { FixtureControl } from './fixture-control';
 
 describe('Component: Dashboard', () => {
@@ -38,14 +38,14 @@ describe('Component: Dashboard', () => {
   }));
 
   beforeEach(inject([MockBackend], function (mockBackend: MockBackend) {
-    
+
     // fake response
     let hardcodedBooks = [new Book('Test', 'Test')];
     let response = new Response(new ResponseOptions({body: hardcodedBooks}));
     // return the response if we have a connection to the MockBackend
     mockBackend.connections.subscribe(connection => connection.mockRespond(response));
 
-  }))
+  }));
 
   describe('Creating a new book', () => {
     let dashboard: DashboardComponent;
@@ -58,9 +58,9 @@ describe('Component: Dashboard', () => {
     xit('adds a book to the list', () => {
       let expected = dashboard.books.length + 1;
 
-      dashboard.add(new Book('title','description'));
+      dashboard.add(new Book('title', 'description'));
 
-      expect(dashboard.books.length).toEqual(expected)
+      expect(dashboard.books.length).toEqual(expected);
     });
   });
 
@@ -74,9 +74,9 @@ describe('Component: Dashboard', () => {
         .createAsync(DashboardComponentTestController)
         .then((_fixture_: ComponentFixture<DashboardComponent>) => {
           fixture = _fixture_;
-          
+
           control = new FixtureControl(fixture);
-          
+
           dashboard = fixture
                         .debugElement
                         .query(By.directive(DashboardComponent))
