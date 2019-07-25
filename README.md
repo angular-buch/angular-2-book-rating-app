@@ -2,10 +2,11 @@
 
 ## What?
 This is an example Angular 2.0 app that we have shown at our live-coding sessions.
+**Angular 2.0.0-rc.4, SystemJS, Bootstrap 3, reflect-metadata... This application is so old that you get a true retro feeling again.**
 
 ## Demo
 You can see the app in action at:
-__[angular-2-book-rating-app](https://angular2buch.de/angular-2-book-rating-app/)__
+__[angular-2-book-rating-app](https://angular-2-book-rating-app.angular-buch.com/)__
 
 ## Running the app locally
 Download or clone the app from Github.
